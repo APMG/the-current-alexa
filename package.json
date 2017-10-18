@@ -1,0 +1,24 @@
+{
+  "name": "mpr-skeleton-alexa",
+  "version": "0.0.1",
+  "description": "A Skeleton for an MPR streaming audio skill",
+  "author": "Minnesota Public Radio",
+  "license": "MIT",
+  "dependencies": {
+    "mpr-alexa-base": "git+ssh://git@gitlab.mpr.org:js-libraries/mpr-alexa-base.git"
+    },
+  "scripts": {
+    "build": "webpack",
+    "zip": "cd dist && zip ../alexa-bundle.zip * && cd ../",
+    "deploy": "yarn run build && yarn run zip && yarn run upload",
+    "upload": "echo 'Uploading needs to be implemented!!!!!!!!!!!'"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-es2016": "^6.24.1",
+    "webpack": "^3.7.1"
+  }
+}
