@@ -11,7 +11,8 @@
     "build": "webpack",
     "zip": "cd dist && zip ../alexa-bundle.zip * && cd ../",
     "deploy": "yarn run build && yarn run zip && yarn run upload",
-    "upload": "echo 'Uploading needs to be implemented!!!!!!!!!!!'"
+    "upload": "echo 'Uploading needs to be implemented!!!!!!!!!!!'",
+    "refresh": "rm -rf node_modules/ && rm yarn.lock && yarn && yarn run deploy"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

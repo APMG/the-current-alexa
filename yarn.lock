@@ -141,8 +141,8 @@ asynckit@^0.4.0:
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
 
 aws-sdk@^2.4.7:
-  version "2.135.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.135.0.tgz#81f4a47b99212f2f236bf5b11b0b3a3a02086db4"
+  version "2.137.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.137.0.tgz#2abbdc2b8642afd0786a17635d9488cc87791171"
   dependencies:
     buffer "4.9.1"
     crypto-browserify "1.0.9"
@@ -729,8 +729,8 @@ brorand@^1.0.1:
   resolved "https://registry.yarnpkg.com/brorand/-/brorand-1.1.0.tgz#12c25efe40a45e3c323eb8675a0a0ce57b22371f"
 
 browserify-aes@^1.0.0, browserify-aes@^1.0.4:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/browserify-aes/-/browserify-aes-1.1.0.tgz#1d2ad62a8b479f23f0ab631c1be86a82dbccbe48"
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/browserify-aes/-/browserify-aes-1.1.1.tgz#38b7ab55edb806ff2dcda1a7f1620773a477c49f"
   dependencies:
     buffer-xor "^1.0.3"
     cipher-base "^1.0.0"
@@ -816,8 +816,8 @@ camelcase@^4.1.0:
   resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-4.1.0.tgz#d545635be1e33c542649c69173e5de6acfae34dd"
 
 caniuse-lite@^1.0.30000744:
-  version "1.0.30000747"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000747.tgz#da86e78e12d0641abeeaee6ecd55d81bd9bd3b5d"
+  version "1.0.30000748"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000748.tgz#44c8d6da52ad65a5d7b9dca4efebd0bdd982ba09"
 
 caseless@~0.12.0:
   version "0.12.0"
@@ -1860,7 +1860,7 @@ minimist@^1.2.0:
 
 "mpr-alexa-base@git+ssh://git@gitlab.mpr.org:js-libraries/mpr-alexa-base.git":
   version "0.0.1"
-  resolved "git+ssh://git@gitlab.mpr.org:js-libraries/mpr-alexa-base.git#56b7cfd21043a0e556e94d4ffc78ff569999dce6"
+  resolved "git+ssh://git@gitlab.mpr.org:js-libraries/mpr-alexa-base.git#2939b26238bcb93a4d891e841edfa2742fe247d8"
   dependencies:
     alexa-sdk "^1.0.14"
     axios "^0.16.2"
