@@ -5,14 +5,14 @@
   "author": "Minnesota Public Radio",
   "license": "MIT",
   "dependencies": {
-    "mpr-alexa-base": "git+ssh://git@gitlab.mpr.org:js-libraries/mpr-alexa-base.git"
-    },
+    "mpr-alexa-base": "git+ssh://git@gitlab.mpr.org/js-libraries/mpr-alexa-base.git"
+  },
   "scripts": {
     "build": "webpack",
     "zip": "cd dist && zip ../alexa-bundle.zip * && cd ../",
-    "deploy": "yarn run build && yarn run zip && yarn run upload",
+    "deploy": "npm run build && npm run zip && npm run upload",
     "upload": "echo 'Uploading needs to be implemented!!!!!!!!!!!'",
-    "refresh": "rm -rf node_modules/ && rm yarn.lock && yarn && yarn run deploy"
+    "refresh": "rm -rf node_modules/ && rm package-lock.json && npm install && npm run deploy"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
