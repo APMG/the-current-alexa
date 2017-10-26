@@ -1,0 +1,219 @@
+{
+  "intents": [
+    {
+      "name": "AMAZON.CancelIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.HelpIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.LoopOffIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.LoopOnIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.NextIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.PauseIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.PreviousIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.ResumeIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.ShuffleOffIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.ShuffleOnIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.StartOverIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.StopIntent",
+      "samples": []
+    },
+    {
+      "name": "AskShowIntent",
+      "samples": [
+        "what show is this",
+        "who is this",
+        "who this is",
+        "who is talking",
+        "who's talking",
+        "what's this show",
+        "who's this host",
+        "who is this host",
+        "who the host is",
+        "who's the d. j.",
+        "who is this d.j.",
+        "who this d.j. is"
+      ],
+      "slots": []
+    },
+    {
+      "name": "AskSongIntent",
+      "samples": [
+        "what song is this",
+        "what song this is",
+        "what song is playing",
+        "what is playing right now",
+        "what is on right now",
+        "what artist is this",
+        "what am I listening to",
+        "what is this",
+        "what this is",
+        "who this band is",
+        "what band this is",
+        "who the artist is",
+        "who this artist is",
+        "who is this artist"
+      ],
+      "slots": []
+    },
+    {
+      "name": "RequestSongIntent",
+      "samples": [
+        "request a song",
+        "i want to request a song",
+        "I want to request {Song} by {Artist}",
+        "I want to request the song {Song} by the band {Artist}",
+        "play {Song} by {Artist}",
+        "play {Song}",
+        "play the {Artist} song {Song}",
+        "play that {Artist} song {Song}",
+        "I want to request that song {Song}",
+        "I want to request that song {Song} by {Artist}",
+        "I want to request that {Song} song by {Artist}",
+        "I want to request that {Song} song"
+      ],
+      "slots": [
+        {
+          "name": "Song",
+          "type": "Song",
+          "samples": [
+            "{Song}",
+            "{Song} by {Artist}",
+            "The {Artist} song {Song}",
+            "The hit song {Song}",
+            "The hit song {Song} by {Artist}",
+            "{Artist}'s classic {Song}"
+          ]
+        },
+        {
+          "name": "Artist",
+          "type": "Artist",
+          "samples": [
+            "{Artist}",
+            "the artist it {Artist}",
+            "the song is by {Artist}"
+          ]
+        }
+      ]
+    }
+  ],
+  "types": [
+    {
+      "name": "Artist",
+      "values": []
+    },
+    {
+      "name": "Message",
+      "values": []
+    },
+    {
+      "name": "Song",
+      "values": []
+    }
+  ],
+  "prompts": [
+    {
+      "id": "Confirm.Intent-RequestSongIntent",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "You want to hear {Song} by {Artist}. Is that correct?"
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-RequestSongIntent.IntentSlot-Song",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "What song do you want to hear?"
+        },
+        {
+          "type": "PlainText",
+          "value": "What song would you like to request?"
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-RequestSongIntent.IntentSlot-Artist",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "What is the name of the artist?"
+        },
+        {
+          "type": "PlainText",
+          "value": "Who is the artist?"
+        }
+      ]
+    }
+  ],
+  "dialog": {
+    "version": "1.0",
+    "intents": [
+      {
+        "name": "RequestSongIntent",
+        "confirmationRequired": true,
+        "prompts": {
+          "confirm": "Confirm.Intent-RequestSongIntent"
+        },
+        "slots": [
+          {
+            "name": "Song",
+            "type": "Song",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicit": "Elicit.Intent-RequestSongIntent.IntentSlot-Song"
+            }
+          },
+          {
+            "name": "Artist",
+            "type": "Artist",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicit": "Elicit.Intent-RequestSongIntent.IntentSlot-Artist"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
