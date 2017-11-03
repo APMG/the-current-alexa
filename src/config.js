@@ -1,24 +1,48 @@
 const stationSlug = 'the-current'
-const config = {
+exports.default = {
   // APP_ID: 'amzn1.ask.skill.b81d3390-fac6-44f9-8f3e-24bb074a495b', // DEV
   APP_ID: 'amzn1.ask.skill.507b6759-42a6-4fc9-82b5-95043b7fee00',
   STATION_SLUG: stationSlug,
   STATION_NAME: 'The Current',
   DEFAULT_SHOW_NAME: 'Current Music',
+  DYNAMODB_TABLE_NAME: 'mpr_alexa',
   STREAM_URL: 'https://current.stream.publicradio.org/kcmp.mp3',
   NOW_PLAYING_URL: 'https://nowplaying.publicradio.org/' + stationSlug,
   CARD_TITLE: 'The Current Live Stream',
   CARD_CONTENT: 'Great music lives here. From Minnesota Public Radio.',
   SPOKEN_WELCOME: 'Welcome to The Current',
-  SPOKEN_HELP: 'You can tell me to play and pause, or ask about what\'s currently playing',
+  SPOKEN_HELP: 'You can tell me to play and pause, ask about what\'s currently playing, or request a song',
   SPOKEN_UNHANDLED: 'I don\'t know how to interpret that',
   SPOKEN_CANNOT_FIND: 'Sorry, I can\'t find that information right now',
   SPOKEN_ILLOGICAL: 'I can\'t do that - this is a live stream',
   SPOKEN_ERROR: 'Something went wrong. I was unable to complete your request',
   HOST_PHONEMES: {
-    'Lucia': 'lutS"i@',
-    'Staruch': 'steIr\\Vk'
+    'Lucia': 'lutS"i@'
+  },
+  FORMS: {
+    SONG_REQUEST: {
+      'action': 'https://mcpostman.publicradio.org/subscription_requests',
+      'data': {
+        'subscription_request': {
+          'property_key': '1338d9da-71e1-4346-b5a4-0d3fe0e81faf',
+          'notification_list': 'f2b245e4-b900-49f5-b84e-b3ea70fbebca',
+          'sde_external_key': 'Current_AlexaSongRequest_DE',
+          'sde_fsm': {
+            'Form_BusinessUnit': 'MPR',
+            'Form_FormName': 'Current_AlexaSongRequest_Form',
+            'Form_FirstName': '',
+            'Form_LastName': '',
+            'Form_Email_Address': '',
+            'Form_PostalCode': ''
+          },
+          'fsm': {
+            'Form_Opt_In_Source': 'MPR Current Engagement'
+          },
+          'sde': {
+            'Form_Song_and_Artist_Name': ''
+          }
+        }
+      }
+    }
   }
 }
-
-export default config
