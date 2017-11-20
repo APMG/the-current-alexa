@@ -1,15 +1,23 @@
-var config = require('./config').default
+var config = require('./config')
 var base = require('mpr-alexa-base')
 var intents = base.intents
 var createLambdaHandler = base.createLambdaHandler
-var requestSong = require('./intents/request-song').default
+var requestSong = require('./intents/request-song')
+var getSongRating = require('./intents/get-song-rating')
+var rateSong = require('./intents/rate-current-song')
 
-let handlers = Object.assign(
+let baseHandlers = Object.assign(
   intents.defaultBuiltIns(config),
   intents.builtInAudio(config),
   intents.askSong(config),
   intents.askShow(config),
-  requestSong()
+  intents.playPodcast(config),
+  requestSong(),
+  getSongRating(),
+  rateSong()
 )
-
-exports.handler = createLambdaHandler(config, handlers)
+//
+// let podcastHandlers = base.createPodcastHandlers(config)
+// let handlers = [baseHandlers, podcastHandlers]
+//
+exports.handler = createLambdaHandler(config, baseHandlers)

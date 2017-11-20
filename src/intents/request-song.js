@@ -3,13 +3,13 @@ var get = require('lodash.get')
 var set = require('lodash.set')
 var qFlat = require('q-flat')
 var toTitle = require('to-title-case')
-var config = require('../config').default
-var apiUrl = 'https://accounts.publicradio.org/api/v1/'
+var config = require('../config')
+var user = require('mpr-alexa-base').user
 
-export default function () {
+module.exports = function () {
   return {
     'RequestSongIntent': function () {
-      var token = getToken.call(this)
+      var token = user(this).getToken()
 
       // This is necessary (here and in `getUser`) due to some async
       // node / lambda quirks that contradict the alexa node sdk docs
@@ -19,8 +19,10 @@ export default function () {
       if (!token) { return }
 
       if (!this.attributes['user']) {
-        getUser.call(this)
-        return null
+        user(this).getUser(
+          getUserSuccess.bind(this),
+          getUserError.bind(this)
+        )
       } else {
         delegateOrSendRequest.call(this)
       }
@@ -89,50 +91,13 @@ const songRequestFail = function (err) {
   }
 }
 
-const getToken = function () {
-  this.token = get(this, 'event.session.user.accessToken')
-
-  if (!this.token) {
-    this.emit(
-      ':tellWithLinkAccountCard',
-      'You need to link your APM account to this skill before you can request a song'
-    )
-    return false
-  }
-  return this.token
-}
-
-const getUser = function () {
-  var token = getToken.call(this)
-
-  if (!token) { return }
-
-  if (!this.attributes['user']) {
-    var requestConfig = {
-      headers: {
-        authorization: 'Bearer ' + token,
-        timeout: 2500,
-        'content-type': 'application/json'
-      },
-      json: true
-    }
-
-    var url = apiUrl + 'me'
-
-    got(url, requestConfig).then(
-      getUserSuccess.bind(this),
-      handleError.bind(this)
-    )
-  }
-}
-
 const getUserSuccess = function (res) {
   this.attributes['user'] = res.body.user
   this.emit(':saveState')
   this.emit(':delegate')
 }
 
-const handleError = function (err) {
+const getUserError = function (err) {
   console.log(err.statusCode, err.response.body)
-  this.emit(':tell', 'Sorry, there was an error. Please try again later.')
+  this.emit(':tell', 'Sorry, there was an error looking up your account. Please try again later.')
 }

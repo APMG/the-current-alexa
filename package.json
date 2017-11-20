@@ -8,7 +8,7 @@
     "got": "^7.1.0",
     "lodash.get": "^4.4.2",
     "lodash.set": "^4.3.2",
-    "mpr-alexa-base": "git+ssh://git@gitlab.mpr.org/js-libraries/mpr-alexa-base.git",
+    "mpr-alexa-base": "../mpr-alexa-base",
     "q-flat": "^1.0.6",
     "to-title-case": "^1.0.0"
   },
@@ -24,6 +24,7 @@
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",
-    "webpack": "^3.7.1"
+    "webpack": "^3.7.1",
+    "webpack-shell-plugin": "^0.5.0"
   }
 }
