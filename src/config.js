@@ -1,13 +1,14 @@
 const stationSlug = 'the-current'
-exports.default = {
+module.exports = {
   // APP_ID: 'amzn1.ask.skill.b81d3390-fac6-44f9-8f3e-24bb074a495b', // DEV
   APP_ID: 'amzn1.ask.skill.507b6759-42a6-4fc9-82b5-95043b7fee00',
   STATION_SLUG: stationSlug,
   STATION_NAME: 'The Current',
   DEFAULT_SHOW_NAME: 'Current Music',
   DYNAMODB_TABLE_NAME: 'mpr_alexa',
-  STREAM_URL: 'https://current.stream.publicradio.org/kcmp.mp3',
+  STREAM_URL: 'https://current.stream.publicradio.org/current.aac',
   NOW_PLAYING_URL: 'https://nowplaying.publicradio.org/' + stationSlug,
+  SONG_RATING_URL: 'https://ratingapi.publicradio.org/ratables/the-current-song/',
   CARD_TITLE: 'The Current Live Stream',
   CARD_CONTENT: 'Great music lives here. From Minnesota Public Radio.',
   SPOKEN_WELCOME: 'Welcome to The Current',
@@ -43,6 +44,19 @@ exports.default = {
           }
         }
       }
+    },
+    RATE_A_SONG: {
+      action: 'https://ratingapi.publicradio.org/users/',
+      data: {
+        ratable_type: 'the-current-song'
+      }
     }
-  }
+  },
+  PODCASTS: [
+    {
+      'name': 'song of the day', // for identification in custom Podcast slot - value must be defined in skill interaction model
+      'feedUrl': 'https://feeds.publicradio.org/public_feeds/song-of-the-day/rss/rss.rss',
+      'behavior': null // FUTURE: Define podcast-specific behaviors like "serial" etc
+    }
+  ]
 }

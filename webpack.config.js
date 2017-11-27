@@ -1,4 +1,5 @@
 const path = require('path')
+const WebpackShellPlugin = require('webpack-shell-plugin')
 
 module.exports = {
   entry: './src/index.js',
@@ -22,5 +23,15 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [
+    new WebpackShellPlugin({
+      // zip up the build file
+      onBuildExit: [
+        'echo "zipping..."',
+        'cd dist && zip ../alexa-bundle.zip * && cd ../"',
+        'echo "zipped!"'
+      ]
+    })
+  ]
 }
