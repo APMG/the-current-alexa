@@ -4,13 +4,21 @@ var get = require('lodash.get')
 var user = require('mpr-alexa-base').user
 var qFlat = require('q-flat')
 
-var customTokenMsg = 'Account Linking is required to rate songs. Go to The Current custom skill in your Alexa app to link your account.'
+var customTokenMsg = '' +
+  'Account Linking is required to rate songs. ' +
+  'Go to The Current custom skill in your Alexa app ' +
+  'to link your account.'
 
 module.exports = function () {
   return {
     'RateCurrentSongIntent': function () {
       var token = user(this).getToken(customTokenMsg)
 
+      // This is necessary (here and in `getUser`) due to some async
+      // node / lambda quirks that contradict the alexa node sdk docs
+      // stating that execution halts after certain calls to `this.emit`
+      // https://github.com/alexa/alexa-skills-kit-sdk-for-nodejs/issues/208#issuecomment-341231525
+      // ~EMN
       if (!token) { return }
 
       if (!this.attributes.user) {
@@ -51,8 +59,7 @@ function delegateOrSendRequest (updatedIntent) {
 
   if (complete && confirmationStatus === 'CONFIRMED') {
     sendSongRating.call(this)
-  } else if (complete && confirmationStatus === 'DENIED') {
-    delete this.attributes.song
+  } else if (complete && confirmationStatus === 'DENIED')
     end.call(this, 'Please try rating the song again')
   } else {
     this.emit(':delegate', updatedIntent || null)

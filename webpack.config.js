@@ -23,15 +23,5 @@ module.exports = {
         }
       }
     ]
-  },
-  plugins: [
-    new WebpackShellPlugin({
-      // zip up the build file
-      onBuildExit: [
-        'echo "zipping..."',
-        'cd dist && zip ../alexa-bundle.zip * && cd ../"',
-        'echo "zipped!"'
-      ]
-    })
-  ]
+  }
 }

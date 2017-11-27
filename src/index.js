@@ -16,8 +16,5 @@ let baseHandlers = Object.assign(
   getSongRating(),
   rateSong()
 )
-//
-// let podcastHandlers = base.createPodcastHandlers(config)
-// let handlers = [baseHandlers, podcastHandlers]
-//
+
 exports.handler = createLambdaHandler(config, baseHandlers)
