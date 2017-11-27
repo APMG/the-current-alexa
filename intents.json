@@ -1,0 +1,422 @@
+{
+  "languageModel": {
+    "types": [
+      {
+        "name": "Podcast",
+        "values": [
+          {
+            "id": null,
+            "name": {
+              "value": "song of the day",
+              "synonyms": [
+                "podcast song of the day",
+                "the song of the day",
+                "song for today",
+                "today's song",
+                "song for today",
+                "song of the day podcast"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Rating",
+        "values": [
+          {
+            "id": null,
+            "name": {
+              "value": "1",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "2",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "3",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "4",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "5",
+              "synonyms": []
+            }
+          }
+        ]
+      }
+    ],
+    "intents": [
+      {
+        "name": "AMAZON.CancelIntent",
+        "samples": []
+      },
+      {
+        "name": "AMAZON.HelpIntent",
+        "samples": []
+      },
+      {
+        "name": "AMAZON.LoopOffIntent",
+        "samples": []
+      },
+      {
+        "name": "AMAZON.LoopOnIntent",
+        "samples": []
+      },
+      {
+        "name": "AMAZON.NextIntent",
+        "samples": []
+      },
+      {
+        "name": "AMAZON.PauseIntent",
+        "samples": []
+      },
+      {
+        "name": "AMAZON.PreviousIntent",
+        "samples": []
+      },
+      {
+        "name": "AMAZON.ResumeIntent",
+        "samples": []
+      },
+      {
+        "name": "AMAZON.ShuffleOffIntent",
+        "samples": []
+      },
+      {
+        "name": "AMAZON.ShuffleOnIntent",
+        "samples": []
+      },
+      {
+        "name": "AMAZON.StartOverIntent",
+        "samples": []
+      },
+      {
+        "name": "AMAZON.StopIntent",
+        "samples": []
+      },
+      {
+        "name": "AskShowIntent",
+        "samples": [
+          "what show is this",
+          "who is this",
+          "who this is",
+          "who is talking",
+          "who's talking",
+          "what's this show",
+          "who's this host",
+          "who is this host",
+          "who the host is",
+          "who's the d. j.",
+          "who is this d.j.",
+          "who this d.j. is"
+        ],
+        "slots": []
+      },
+      {
+        "name": "AskSongIntent",
+        "samples": [
+          "what song is this",
+          "what song this is",
+          "what song is playing",
+          "what is playing right now",
+          "what is on right now",
+          "what artist is this",
+          "what am I listening to",
+          "what is this",
+          "what this is",
+          "who this band is",
+          "what band this is",
+          "who the artist is",
+          "who this artist is",
+          "who is this artist"
+        ],
+        "slots": []
+      },
+      {
+        "name": "GetSongRatingIntent",
+        "samples": [
+          "what is this song rated",
+          "what is the rating for this song",
+          "how is this song rated",
+          "what is this song's rating",
+          "give me the rating for this song",
+          "what's the rating for this song",
+          "what's this song rated",
+          "how's this song rated",
+          "how do people rate this song",
+          "does this song have any ratings",
+          "is this song rated",
+          "what this song is rated",
+          "for this song's rating"
+        ],
+        "slots": []
+      },
+      {
+        "name": "PlayPodcastIntent",
+        "samples": [
+          "Play {Podcast}",
+          "Play the {Podcast} podcast",
+          "Play the {Podcast}"
+        ],
+        "slots": [
+          {
+            "name": "Podcast",
+            "type": "Podcast",
+            "samples": [
+              "{Podcast}",
+              "The {Podcast} podcast",
+              "The {Podcast}",
+              "{Podcast} podcast"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "RateCurrentSongIntent",
+        "samples": [
+          "I want to rate this song",
+          "I want to give this song a rating",
+          "Rate this song",
+          "Rate the current song",
+          "I want to rate this",
+          "I have a rating for this song",
+          "Can I rate this song",
+          "If I can rate this song",
+          "Rate this song {Rating} out of five stars",
+          "I want to rate this song {Rating} out of five stars",
+          "Give this song a rating of {Rating} out of five stars",
+          "Rate this song {Rating} stars",
+          "Give this song a rating of {Rating} stars",
+          "I want to rate this song {Rating} stars"
+        ],
+        "slots": [
+          {
+            "name": "Song",
+            "type": "AMAZON.MusicRecording",
+            "samples": [
+              "{Song}"
+            ]
+          },
+          {
+            "name": "Rating",
+            "type": "Rating",
+            "samples": [
+              "{Rating}",
+              "{Rating} out of five",
+              "I want to rate this {Rating} out of five",
+              "I want to rate this {Rating}",
+              "{Rating} stars",
+              "{Rating} out of five stars",
+              "Let's say {Rating}",
+              "Let's say {Rating} stars"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "RequestSongIntent",
+        "samples": [
+          "request a song",
+          "i want to request a song",
+          "I want to request {Song} by {Artist}",
+          "I want to request the song {Song} by the band {Artist}",
+          "play {Song} by {Artist}",
+          "play {Song}",
+          "play the {Artist} song {Song}",
+          "play that {Artist} song {Song}",
+          "I want to request that song {Song}",
+          "I want to request that song {Song} by {Artist}",
+          "I want to request that {Song} song by {Artist}",
+          "I want to request that {Song} song"
+        ],
+        "slots": [
+          {
+            "name": "Song",
+            "type": "AMAZON.MusicRecording",
+            "samples": [
+              "{Song}",
+              "{Song} by {Artist}",
+              "The {Artist} song {Song}",
+              "The hit song {Song}",
+              "The hit song {Song} by {Artist}",
+              "{Artist}'s classic {Song}"
+            ]
+          },
+          {
+            "name": "Artist",
+            "type": "AMAZON.MusicGroup",
+            "samples": [
+              "{Artist}",
+              "the artist it {Artist}",
+              "the song is by {Artist}"
+            ]
+          }
+        ]
+      }
+    ],
+    "invocationName": "the current"
+  },
+  "prompts": [
+    {
+      "id": "Elicit.Intent-PlayPodcastIntent.IntentSlot-Podcast",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "Which podcast would you like to hear?"
+        }
+      ]
+    },
+    {
+      "id": "Confirm.Intent-RateCurrentSongIntent",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "Ok. You want to give the song {Song} a rating of {Rating} out of five. Is that correct?"
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-RateCurrentSongIntent.IntentSlot-Song",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "What is the current song?"
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-RateCurrentSongIntent.IntentSlot-Rating",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "Ok. How many stars do you want to give this song out of five?"
+        }
+      ]
+    },
+    {
+      "id": "Confirm.Intent-RequestSongIntent",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "You want to hear {Song} by {Artist}. Is that correct?"
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-RequestSongIntent.IntentSlot-Song",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "What song do you want to hear?"
+        },
+        {
+          "type": "PlainText",
+          "value": "What song would you like to request?"
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-RequestSongIntent.IntentSlot-Artist",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "What is the name of the artist?"
+        },
+        {
+          "type": "PlainText",
+          "value": "Who is the artist?"
+        }
+      ]
+    }
+  ],
+  "dialog": {
+    "intents": [
+      {
+        "name": "PlayPodcastIntent",
+        "confirmationRequired": false,
+        "prompts": {},
+        "slots": [
+          {
+            "name": "Podcast",
+            "type": "Podcast",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicitation": "Elicit.Intent-PlayPodcastIntent.IntentSlot-Podcast"
+            }
+          }
+        ]
+      },
+      {
+        "name": "RateCurrentSongIntent",
+        "confirmationRequired": true,
+        "prompts": {
+          "confirmation": "Confirm.Intent-RateCurrentSongIntent"
+        },
+        "slots": [
+          {
+            "name": "Song",
+            "type": "AMAZON.MusicRecording",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicitation": "Elicit.Intent-RateCurrentSongIntent.IntentSlot-Song"
+            }
+          },
+          {
+            "name": "Rating",
+            "type": "Rating",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicitation": "Elicit.Intent-RateCurrentSongIntent.IntentSlot-Rating"
+            }
+          }
+        ]
+      },
+      {
+        "name": "RequestSongIntent",
+        "confirmationRequired": true,
+        "prompts": {
+          "confirmation": "Confirm.Intent-RequestSongIntent"
+        },
+        "slots": [
+          {
+            "name": "Song",
+            "type": "AMAZON.MusicRecording",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicitation": "Elicit.Intent-RequestSongIntent.IntentSlot-Song"
+            }
+          },
+          {
+            "name": "Artist",
+            "type": "AMAZON.MusicGroup",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicitation": "Elicit.Intent-RequestSongIntent.IntentSlot-Artist"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
