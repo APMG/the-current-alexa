@@ -8,8 +8,9 @@
     "got": "^7.1.0",
     "lodash.get": "^4.4.2",
     "lodash.set": "^4.3.2",
-    "mpr-alexa-base": "git+ssh://git@gitlab.mpr.org/enoonan/mpr-alexa-base.git",
+    "node-podcast-parser": "^2.0.0",
     "q-flat": "^1.0.6",
+    "skill-share": "git://github.com/APMG/skill-share.git",
     "to-title-case": "^1.0.0"
   },
   "scripts": {
@@ -17,13 +18,15 @@
     "zip": "cd dist && zip ../alexa-bundle.zip * && cd ../",
     "deploy": "npm run build && npm run zip && npm run upload",
     "upload": "echo 'Uploading needs to be implemented :)'",
-    "refresh": "rm -rf node_modules/ && rm yarn.lock && yarn install && yarn deploy"
+    "refresh": "rm -rf node_modules/ && rm yarn.lock && yarn install && yarn deploy",
+    "test": "jest"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",
+    "jest": "^22.1.4",
     "webpack": "^3.7.1"
   }
 }
