@@ -1,8 +1,7 @@
 var podcaster = require('../podcaster')
-// var states = require('../states')
 var config
 
-exports.default = function (stationConfig) {
+module.exports = function (stationConfig) {
   config = stationConfig
 
   return {

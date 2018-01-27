@@ -1,7 +1,7 @@
 var got = require('got')
 var config = require('../config')
 var get = require('lodash.get')
-var user = require('mpr-alexa-base').user
+var user = require('skill-share').user
 var qFlat = require('q-flat')
 
 var customTokenMsg = '' +
@@ -59,7 +59,7 @@ function delegateOrSendRequest (updatedIntent) {
 
   if (complete && confirmationStatus === 'CONFIRMED') {
     sendSongRating.call(this)
-  } else if (complete && confirmationStatus === 'DENIED')
+  } else if (complete && confirmationStatus === 'DENIED') {
     end.call(this, 'Please try rating the song again')
   } else {
     this.emit(':delegate', updatedIntent || null)

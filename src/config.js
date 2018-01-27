@@ -1,6 +1,6 @@
 const stationSlug = 'the-current'
 module.exports = {
-  APP_ID: 'amzn1.ask.skill.a-bunch-of-letters-and-numbers-go-here',
+  APP_ID: 'amzn1.ask.skill.507b6759-42a6-4fc9-82b5-95043b7fee00',
   STATION_SLUG: stationSlug,
   STATION_NAME: 'The Current',
   DEFAULT_SHOW_NAME: 'Current Music',

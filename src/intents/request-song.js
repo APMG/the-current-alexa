@@ -4,7 +4,7 @@ var set = require('lodash.set')
 var qFlat = require('q-flat')
 var toTitle = require('to-title-case')
 var config = require('../config')
-var user = require('mpr-alexa-base').user
+var user = require('skill-share').user
 
 module.exports = function () {
   return {

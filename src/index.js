@@ -1,6 +1,6 @@
 var skillShare = require('skill-share')
 var config = require('./config')
-intents = skillShare.intents
+var intents = skillShare.intents
 var requestSong = require('./intents/request-song')
 var getSongRating = require('./intents/get-song-rating')
 var rateSong = require('./intents/rate-current-song')

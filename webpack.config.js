@@ -1,5 +1,4 @@
 const path = require('path')
-const WebpackShellPlugin = require('webpack-shell-plugin')
 
 module.exports = {
   entry: './src/index.js',
