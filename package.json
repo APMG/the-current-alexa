@@ -1,7 +1,7 @@
 {
-  "name": "mpr-skeleton-alexa",
+  "name": "the-current-alexa",
   "version": "0.0.1",
-  "description": "A Skeleton for an MPR streaming audio skill",
+  "description": "An Alexa skill for The Current",
   "author": "Minnesota Public Radio",
   "license": "MIT",
   "dependencies": {
